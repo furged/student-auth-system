@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-
-const API_URL = 'https://student-auth-backend-fooy.onrender.com/api';
+import API_URL from '../config';  // ← ADD THIS LINE
 
 function Register() {
   const navigate = useNavigate();
@@ -12,6 +11,7 @@ function Register() {
     password: '',
     course: ''
   });
+  // ... rest of file stays same
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 

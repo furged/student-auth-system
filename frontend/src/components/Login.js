@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../config';  // ← ADD THIS LINE
 
-const API_URL = 'https://student-auth-backend-fooy.onrender.com/api';
 
 function Login() {
   const navigate = useNavigate();
