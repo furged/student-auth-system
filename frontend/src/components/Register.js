@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import API_URL from '../config';  // ← ADD THIS LINE
 
 function Register() {
   const navigate = useNavigate();
@@ -11,7 +10,6 @@ function Register() {
     password: '',
     course: ''
   });
-  // ... rest of file stays same
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -30,7 +28,7 @@ function Register() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_URL}/register`, formData);
+      const response = await axios.post('https://student-auth-system-avoz.onrender.com/api/register', formData);
       
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);

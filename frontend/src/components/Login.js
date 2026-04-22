@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import API_URL from '../config';  // ← ADD THIS LINE
-
 
 function Login() {
   const navigate = useNavigate();
@@ -26,7 +24,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_URL}/login`, formData);
+      const response = await axios.post('https://student-auth-system-avoz.onrender.com/api/login', formData);
       
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);

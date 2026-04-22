@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import API_URL from '../config';  // ← ADD THIS LINE
-
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -24,7 +22,7 @@ function Dashboard() {
   const loadProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`${API_URL}/profile`, {
+      const response = await axios.get('https://student-auth-system-avoz.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -61,7 +59,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `${API_URL}/update-password`,
+        'https://student-auth-system-avoz.onrender.com/api/update-password',
         passwordData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -87,7 +85,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `${API_URL}/update-course`,
+        'https://student-auth-system-avoz.onrender.com/api/update-course',
         { course: selectedCourse },
         { headers: { Authorization: `Bearer ${token}` } }
       );
